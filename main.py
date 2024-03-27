@@ -121,7 +121,9 @@ class Player1(pygame.sprite.Sprite):
             x = point[0]
             y = point[1]
             pygame.draw.circle(sc, 'blue', (x, y), 3)
-
+        if len(set(self.mask_list) & set(player2.mask_list))  > 0 and self.anime_atk and self.flag_damage:
+            player2.hp -= 10
+            self.flag_damage = False
 
 
 class Player2(pygame.sprite.Sprite):
@@ -229,6 +231,9 @@ class Player2(pygame.sprite.Sprite):
             x = point[0]
             y = point[1]
             pygame.draw.circle(sc, 'red', (x, y), 3)
+        if len(set(self.mask_list) & set(player_1.mask_list))  > 0 and self.anime_atk and self.flag_damage:
+            player_1.hp -= 10
+            self.flag_damage = False
 
 
 class FON:
